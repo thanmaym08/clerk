@@ -1,6 +1,5 @@
 import Image from "next/image";
-import Link from "next/link"; 
-import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs';
+import Link from "next/link";
 
 export default function Navbar() {
     return (
@@ -13,6 +12,7 @@ export default function Navbar() {
                             src="/assets/logo.png"
                             alt="HealthOne Logo"
                             width={50}
+                            className="rounded-3xl"
                             height={50}
                         />
                         <div className="text-white text-xl font-semibold">HealthOne</div>
@@ -27,23 +27,16 @@ export default function Navbar() {
 
                     {/* Clerk Authentication */}
                     <div className="flex items-center space-x-4">
-                        <SignedOut>
-                            {/* Show both Sign In and Sign Up buttons when the user is signed out */}
-                            <SignInButton>
-                                <button className="text-white bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-md">Sign In</button>
-                            </SignInButton>
-                            <SignUpButton>
-                                <button className="text-white bg-green-600 hover:bg-green-700 px-4 py-2 rounded-md">Sign Up</button>
-                            </SignUpButton>
-                        </SignedOut>
-                        <SignedIn>
-                            {/* Show the User Button when signed in */}
-                            <UserButton 
-                                appearance={{ elements: { 
-                                    avatarBox: 'w-12 h-12' // Adjust width and height for larger avatar
-                                }}} 
-                            />
-                        </SignedIn>
+
+                        {/* Show both Sign In and Sign Up buttons when the user is signed out */}
+
+                        <button className="text-white bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-md">Sign In</button>
+
+                        <button className="text-white bg-green-600 hover:bg-green-700 px-4 py-2 rounded-md">Sign Up</button>
+
+                        {/* Show the User Button when signed in */}
+
+
                     </div>
                 </nav>
             </header>
